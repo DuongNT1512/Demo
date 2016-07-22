@@ -3,6 +3,8 @@ source "https://rubygems.org"
 
 gem "rails", "~> 5.0.0"
 
+gem "bootstrap-sass", "3.3.6"
+
 gem "sqlite3"
 
 gem "puma", "~> 3.0"
