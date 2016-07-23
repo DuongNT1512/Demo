@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   before_save :downcase_email
   validates :name, presence: true, length: {maximum: 50}
 
@@ -8,9 +9,17 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :password, presence: true, length: {minimum: 6}
-  private
 
+  private
   def downcase_email
     self.email = email.downcase
+  end
+
+  class << self
+    def digest string
+      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+        BCrypt::Engine.cost
+      BCrypt::Password.create string, cost: cost
+    end
   end
 end
