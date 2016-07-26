@@ -10,9 +10,13 @@
       <%= f.label :password, t("signup.password") %>
       <%= f.password_field :password, class: "form-control" %>
 
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+      <%= f.check_box :remember_me %> <span>Remember me on this computer</span>
+      <% end %>
+
       <%= f.submit t("header.login"), class: "btn btn-primary" %>
     <% end %>
 
-    <p> <%= t "signup.newUser"%> <%= link_to t("signup.signupNow"), signup_path %></p>
+    <p> <%= t "signup.newUser" %> <%= link_to t("signup.signupNow"), signup_path %></p>
   </div>
 </div>

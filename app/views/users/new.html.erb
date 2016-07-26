@@ -8,7 +8,7 @@
       <%= f.label :name, t("signup.name") %>
       <%= f.text_field :name, class: "form-control" %>
 
-      <%= f.label :email%>
+      <%= f.label :email %>
       <%= f.text_field :email, class: "form-control" %>
 
       <%= f.label :password, t("signup.password") %>
@@ -16,6 +16,9 @@
 
       <%= f.label :password_confirmation, t("signup.password_confirmation") %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
+
+      <%= f.label :gender %>
+      <%= f.select :gender, options_for_select(@gender), class: "form-control" %>
 
       <%= f.submit t("signup.submitbtn"), class: "btn btn-primary" %>
     <% end %>
