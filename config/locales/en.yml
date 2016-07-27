@@ -9,7 +9,7 @@ en:
     newUser: "newUser?"
 
   header:
-    home: "Trang chu"
+    home: "Home"
     help: "Help"
     language: "Language"
     login: "Login"
@@ -33,3 +33,5 @@ en:
     link: "Contact me at"
   about_page:
     linhk: "This is all about me!"
+  button_text: Save change
+  button_signup: Create

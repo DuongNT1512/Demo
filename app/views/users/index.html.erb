@@ -1,0 +1,13 @@
+<% provide :title, "All users" %>
+
+<% if logged_in? %>
+  <h1> All Users</h1>
+  <%= will_paginate %>
+  <ul class="users">
+    <%= render @users %>
+  </ul>
+  <%= will_paginate %>
+<% else %>
+  <% flash[:danger] = "Please log in!" %>
+  <%= link_to "login", login_path %>
+<%end%>
