@@ -10,7 +10,7 @@ class User < ApplicationRecord
     format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   has_secure_password
 
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
   validates :gender, presence: true
 
@@ -21,6 +21,10 @@ class User < ApplicationRecord
     update_attribute :remember_digest, User.digest(remember_token)
   end
 
+  def current_user? user
+    self == user
+  end
+
   def forget
     update_attribute :remember_digest, nil
   end
@@ -29,11 +33,11 @@ class User < ApplicationRecord
     return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
+
   private
   def downcase_email
     self.email = email.downcase
   end
-
 
   class << self
     def digest string
