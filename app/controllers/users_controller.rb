@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @microposts = @user.microposts.paginate page: params[:page]
   end
 
   def create
@@ -52,6 +53,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit :name, :email, :password, :password_confirmation, :gender
+  end
+
+  def correct_user
+    redirect_to root_url unless @user.current_user? current_user
   end
 
   def logged_in_user
