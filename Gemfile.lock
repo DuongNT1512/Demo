@@ -175,6 +175,7 @@ DEPENDENCIES
   bootstrap-will_paginate (= 0.0.10)
   byebug
   coffee-rails (~> 4.2)
+  dotenv-rails
   faker (= 1.6.3)
   jbuilder (~> 2.5)
   jquery-rails
