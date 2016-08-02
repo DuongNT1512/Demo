@@ -9,4 +9,7 @@ config/application.yml
 !/log/.keep
 !/tmp/.keep
 
+# Ignore uploaded test images.
+/public/uploads
+
 .byebug_history
