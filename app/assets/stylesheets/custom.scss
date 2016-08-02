@@ -17,118 +17,188 @@ textarea {
 
 .center {
   text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
 }
 
-/*typography*/
-h1, h2, h3, h4, h5{
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
-h1{
+h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
 }
 
-h2{
+h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: gray-light;
+  color: #777;
 }
-p{
+
+p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
 
-/*Header*/
-#logo{
+/* header */
+
+#logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
-  &:hover{
-    color: white;
-    text-decoration: none;
-  }
 }
 
-/*img{
-  display: none;
-}*/
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+
+/* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
 
-/*footer*/
-footer{
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
   margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
-  a{
-    color: $gray;
-    &:hover{
-      color: $gray-darker;
-    }
+  @include box_sizing;
+}
+
+/* sidebar */
+
+aside {
+  section.user_info {
+    margin-top: 20px;
   }
-  small{
-    float: left;
+
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+    border: 0;
+    padding-top: 0;
   }
-  ul{
-    float: right;
-    list-style: none;
-    li{
-      float: left;
-      margin-left: 15px;
+
+  span {
+    display: block;
+    margin-bottom: 3px;
+    line-height: 1;
+  }
+
+  h1 {
+    font-size: 1.4em;
+    text-align: left;
+    letter-spacing: -1px;
+    margin-bottom: 3px;
+    margin-top: 0px;
     }
   }
 }
 
-/*sidebar*/
-
-aside{
-  section.user_infor{
-    margin-top: 20px;
-  }
-  section{
-    padding : 10px 0;
-    margin-top: 20px;
-    &:first_child{
-      border: 0;
-      padding-top: 0;
-    }
-    span{
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1
-    }
-    h1{
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-top: 0;
-      margin-bottom: 3px;
-    }
-  }
-}
-
-.gravatar{
+.gravatar {
   float: left;
   margin-right: 10px;
 }
 
-.gravatar_edit{
+.gravatar_edit {
   margin-top: 15px;
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+    max-height: 50px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+  .gravatar {
+    max-height: 50px;
+  }
 }
 
 /* forms */
@@ -137,24 +207,24 @@ input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
-  /*@include box_sizing;*/
+  @include box_sizing;
 }
 
 input {
   height: auto !important;
 }
 
-#error_explanation{
+#error_explanation {
   color: red;
-  ul{
+  ul {
     color: red;
     margin: 0 0 30px 0;
   }
 }
 
-.field_with_errors{
+.field_with_errors {
   @extend .has-error;
-  .form-control{
+  .form-control {
     color: $state-danger-text;
   }
 }
@@ -186,7 +256,6 @@ input {
 }
 
 /* microposts */
-
 .microposts {
   list-style: none;
   padding: 0;
@@ -215,6 +284,7 @@ input {
     float: left;
     margin-right: 10px;
     margin-top: 5px;
+    max-height: 50px;
   }
 }
 

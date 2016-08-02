@@ -1,0 +1,20 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <div class="hvr-glow col-md-5 col-md-offset-1 stats-1">
+    <%= link_to user_follow_index_path @user, type_action: "following" do %>
+      <strong id="following" class="stat">
+        <%= @user.following.count %>
+      </strong>
+      <p>Following</p>
+    <% end %>
+  </div>
+
+  <div  class="hvr-glow col-md-5 col-md-offset-1 stats-1">
+    <%= link_to user_follow_index_path @user, type_action: "followers" do %>
+      <strong id="followers" class="stat">
+        <%= @user.followers.count %>
+      </strong>
+      <p>Follower</p>
+    <% end %>
+  </div>
+</div>

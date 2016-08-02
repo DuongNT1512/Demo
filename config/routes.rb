@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   delete "/logout", to: "sessions#destroy"
 
-  resources :users
+  resources :users do
+    resources :follow, only: :index
+  end
 
   resources :account_activations, only: :edit
 
@@ -26,4 +28,7 @@ Rails.application.routes.draw do
 
   resources :microposts, only: [:create, :destroy]
 
+  resources :unfollow, only: [:destroy]
+
+  resources :follow, only: [:create]
 end
