@@ -5,12 +5,10 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 Dotenv::Railtie.load
 
-HOSTNAME = ENV['HOSTNAME']
+HOSTNAME = ENV["HOSTNAME"]
 
 module DemoApp
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end
